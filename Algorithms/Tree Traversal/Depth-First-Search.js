@@ -51,3 +51,31 @@ function dfsInOrderIterative(root) {
 
   return result;
 }
+
+function dfsPostOrderRecursive(node, arr = []) {
+  if (node) {
+    if (node.left) dfsPostOrderRecursive(node.left, arr);
+    if (node.right) dfsPostOrderRecursive(node.right, arr);
+
+    arr.push(node.val);
+  }
+
+  return arr;
+}
+
+function dfsPostOrderIterative(root) {
+  const s1 = [root];
+  const s2 = [];
+  let current;
+
+  while (s1.length) {
+    current = s1.pop();
+
+    if (current.left) s1.push(current.left);
+    if (current.right) s1.push(current.right);
+
+    s2.push(current.val);
+  }
+
+  return s2.reverse();
+}
