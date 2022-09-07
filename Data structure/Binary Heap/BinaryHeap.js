@@ -12,13 +12,13 @@ class BinaryHeap {
 
     let i = this.arr.length - 1;
 
-    while (this.arr[i] > this.arr[(i - 1) / 2]) {
-      if (this.arr[i] > this.arr[(i - 1) / 2]) {
+    while (this.arr[i] > this.arr[Math.round((i - 1) / 2)]) {
+      if (this.arr[i] > this.arr[Math.round((i - 1) / 2)]) {
         let temp = this.arr[i];
-        this.arr[i] = this.arr[(i - 1) / 2];
-        this.arr[(i - 1) / 2] = temp;
+        this.arr[i] = this.arr[Math.round((i - 1) / 2)];
+        this.arr[Math.round((i - 1) / 2)] = temp;
 
-        i = (i - 1) / 2;
+        i = Math.round((i - 1) / 2);
       }
     }
   }
